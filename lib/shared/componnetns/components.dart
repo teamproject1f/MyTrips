@@ -125,6 +125,17 @@ Widget defaultMaterialButton({
     );
 
 
+PreferredSizeWidget defaultAppBar ()=> AppBar(
+  systemOverlayStyle: const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light
+  ),
+  backgroundColor: Colors.transparent,
+  elevation: 0,
+);
+
+
 Widget defaultTextButton({
   required Function function,
   required String text,
@@ -828,13 +839,4 @@ String getNowDateTime (Timestamp dateTime) {
 }
 String time = DateTime.now().toString().split(' ').elementAt(1);
 
-PreferredSizeWidget defaultAppBar ()=> AppBar(
-    systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.light,
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light
-    ),
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-  );
 

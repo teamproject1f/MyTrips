@@ -19,6 +19,7 @@ class OnBoard extends StatelessWidget {
             image: DecorationImage(
               image: onBoardImage,
               fit: BoxFit.cover,
+
             ),
           ),
           child: Scaffold(
