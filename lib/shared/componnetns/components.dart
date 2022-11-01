@@ -10,8 +10,8 @@ import 'package:intl/intl.dart';
 Widget defaultMaterialButton({
   required Function() function,
   required String text,
-  double width = 279,
-  double height = 42.0,
+  double width = 290,
+  double height = 43.0,
   double radius = 10.0,
   bool isUpperCase = false,
   Color? color,
@@ -70,68 +70,75 @@ Widget defaultTextFormField({
   IconData? suffix,
   IconData? prefix,
   Function? suffixPressed,  TextStyle? style,}) {
-  return TextFormField(
-      focusNode: FocusNode(),
-      style: GoogleFonts.roboto(
-        //color: SocialCubit.get(context).isLight? Colors.black : Colors.white,
+  return Container(
+    width: 290,
+    height: 50,
+    padding: EdgeInsets.zero,
+    margin: EdgeInsets.zero,
+    child: TextFormField(
+
+        focusNode: FocusNode(),
+        style: GoogleFonts.roboto(
+          color:  Colors.white,
+        ),
+        maxLines: 1,
+        minLines: 1,
+        controller: controller,
+        validator: validate,
+        enabled: isClickable,
+        onTap: onTap,
+        onFieldSubmitted: onFieldSubmitted,
+        onChanged: onChanged,
+        obscureText: isPassword,
+        keyboardType: keyboardType,
+        autofocus: false,
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            prefix,
+        color: Colors.grey,
+          ),
+          suffixIcon: suffix != null
+              ? IconButton(
+                  onPressed: () {
+                    suffixPressed!();
+                  },
+                  icon: Icon(
+                    suffix,
+              color:  Colors.grey,
+                  ),
+                )
+              : null,
+          focusedBorder:  const OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+             color:  Colors.white,
+            ),
+          ),
+          hintText: hint,
+          hintStyle: const TextStyle(
+            color:  Colors.white,
+          ),
+          enabledBorder:  const OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              color:  Colors.white,
+            ),
+          ),
+          errorBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
+          ),
+        ),
       ),
-      maxLines: 1,
-      minLines: 1,
-      controller: controller,
-      validator: validate,
-      enabled: isClickable,
-      onTap: onTap,
-      onFieldSubmitted: onFieldSubmitted,
-      onChanged: onChanged,
-      obscureText: isPassword,
-      keyboardType: keyboardType,
-      autofocus: false,
-      decoration: InputDecoration(
-        prefixIcon: Icon(
-          prefix,
-         // color: SocialCubit.get(context).isLight? Colors.grey : Colors.white,
-        ),
-        suffixIcon: suffix != null
-            ? IconButton(
-                onPressed: () {
-                  suffixPressed!();
-                },
-                icon: Icon(
-                  suffix,
-           //       color: SocialCubit.get(context).isLight? Colors.grey : Colors.white,
-                ),
-              )
-            : null,
-        focusedBorder:  const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
-          borderSide: BorderSide(
-            //color: SocialCubit.get(context).isLight? Colors.black : Colors.white,
-          ),
-        ),
-        hintText: hint,
-        hintStyle: const TextStyle(
-          //color: SocialCubit.get(context).isLight? Colors.black : Colors.white,
-        ),
-        enabledBorder:  const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
-          borderSide: BorderSide(
-           // color: SocialCubit.get(context).isLight? Colors.black : Colors.white,
-          ),
-        ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-        ),
-      ),
-    );
+  );
 }
 
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:team1/shared/componnetns/components.dart';
@@ -11,6 +10,7 @@ class OnBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
         Container(
@@ -19,7 +19,6 @@ class OnBoard extends StatelessWidget {
             image: DecorationImage(
               image: onBoardImage,
               fit: BoxFit.cover,
-
             ),
           ),
           child: Scaffold(
@@ -31,8 +30,10 @@ class OnBoard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Spacer(
-                    flex: 1,
+                    flex: 2,
                   ),
+
+
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -61,6 +62,7 @@ class OnBoard extends StatelessWidget {
                               ),
                             ),
                           ),
+
                           Text(
                             'UR',
                             style: GoogleFonts.roboto(
@@ -72,6 +74,7 @@ class OnBoard extends StatelessWidget {
                               ),
                             ),
                           ),
+
 
                         ],
                       ),
@@ -100,17 +103,21 @@ class OnBoard extends StatelessWidget {
 
                     ],
                   ),
-
                   space(0, 60),
                   Center(
                     child: Column(
                       children: [
+
                         defaultMaterialButton(
-                            function: (){},
+                            function: ()
+                            {
+                             // navigateTo(context, widget);
+                            },
                             text: 'Sign in',
                             color:defaultColor,
                         ),
                         space(0, 26),
+
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
                           child: defaultMaterialButton(
@@ -123,6 +130,8 @@ class OnBoard extends StatelessWidget {
                       ],
                     ),
                   ),
+
+
                 ],
               ),
             ),
