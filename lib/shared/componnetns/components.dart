@@ -7,6 +7,53 @@ import 'package:team1/shared/network/cache_helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
+Widget defaultMaterialButton({
+  required Function() function,
+  required String text,
+  double width = 279,
+  double height = 42.0,
+  double radius = 10.0,
+  bool isUpperCase = false,
+  Color? color,
+  Function? onTap,
+}) => Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(
+          radius,
+        ),
+        color: color,
+        //  color: background,
+      ),
+      child: MaterialButton(
+        height: 22,
+        minWidth: 59,
+        onPressed: function,
+        color: color,
+        child: Text(
+          textAlign : TextAlign.center,
+          isUpperCase ? text.toUpperCase() : text,
+          style: GoogleFonts.roboto(
+            fontSize: 19,
+            color: const Color(0xffFFFFFF),
+            fontWeight: FontWeight.w500,
+
+          ),
+        ),
+      ),
+    );
+
+PreferredSizeWidget defaultAppBar ()=> AppBar(
+  systemOverlayStyle: const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light
+  ),
+  backgroundColor: Colors.transparent,
+  elevation: 0,
+);
+
 Widget defaultTextFormField({
  required BuildContext context,
   FocusNode? focusNode,
@@ -87,88 +134,7 @@ Widget defaultTextFormField({
     );
 }
 
-Widget defaultMaterialButton({
-  required Function() function,
-  required String text,
-  double width = 279,
-  double height = 43.0,
-  double radius = 6.0,
-  bool isUpperCase = false,
-   Color ?color,
-  Function? onTap,}) =>
-   Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          radius,
-        ),
-        color: color,
-        //  color: background,
-      ),
-      child: MaterialButton(
-        height: 22,
-        minWidth: 59,
-        onPressed: function,
-        color: color,
-        child: Text(
-            textAlign : TextAlign.center,
-          isUpperCase ? text.toUpperCase() : text,
-          style: GoogleFonts.roboto(
-            fontSize: 19,
-            color: const Color(0xffFFFFFF),
-            fontWeight: FontWeight.w500,
 
-          ),
-        ),
-      ),
-    );
-
-
-PreferredSizeWidget defaultAppBar ()=> AppBar(
-  systemOverlayStyle: const SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.light,
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light
-  ),
-  backgroundColor: Colors.transparent,
-  elevation: 0,
-);
-
-
-Widget defaultTextButton({
-  required Function function,
-  required String text,
-required BuildContext context
-}) {
-  return TextButton(
-      onPressed: () {
-        function();
-      },
-      child: Text(text,style: GoogleFonts.libreBaskerville(
-        fontWeight: FontWeight.w400,
-        //color: SocialCubit.get(context).isLight ? Colors.black : Colors.white,
-      ),),
-    );
-}
-
-Widget myDivider(Color? color) {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 8),
-      width: double.infinity,
-      height: 4.0,
-      color: color,
-    );
-}
-
-Widget myDivider2() {
-  return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      width: double.infinity,
-      height: 4.0,
-      color: Colors.grey.shade200,
-    );
-}
 
 void showToast({
   required String text,

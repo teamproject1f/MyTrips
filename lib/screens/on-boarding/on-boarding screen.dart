@@ -110,11 +110,14 @@ class OnBoard extends StatelessWidget {
                             text: 'Sign in',
                             color:defaultColor,
                         ),
-                        space(0, 20),
-                        defaultMaterialButton(
-                            function: (){},
-                            text: 'Sign up',
-                            color:defaultColor.withOpacity(0.30),
+                        space(0, 26),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: defaultMaterialButton(
+                              function: (){},
+                              text: 'Sign up',
+                              color:defaultColor.withOpacity(0.30),
+                          ),
                         ),
                         //  space(0, 50),
                       ],
