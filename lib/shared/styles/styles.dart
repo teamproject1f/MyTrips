@@ -1,3 +1,7 @@
 import 'package:flutter/material.dart';
 
-const onBoardImage = AssetImage("assets/images/sign in.png");
+const splashImage = AssetImage("assets/images/splash.png");
+const onBoardImage = AssetImage("assets/images/onBoard.png");
+const signINImage = AssetImage("assets/images/signIN.png");
+const signUPImage = AssetImage("assets/images/signUP.png");
+

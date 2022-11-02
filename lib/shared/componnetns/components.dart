@@ -23,14 +23,15 @@ Widget defaultMaterialButton({
         borderRadius: BorderRadius.circular(
           radius,
         ),
-        color: color,
-        //  color: background,
+      color: color,
       ),
       child: MaterialButton(
+
+        clipBehavior : Clip.antiAliasWithSaveLayer,
         height: 22,
         minWidth: 59,
         onPressed: function,
-        color: color,
+       // color: color,
         child: Text(
           textAlign : TextAlign.center,
           isUpperCase ? text.toUpperCase() : text,
