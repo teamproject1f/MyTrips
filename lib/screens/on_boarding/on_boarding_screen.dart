@@ -78,8 +78,8 @@ class OnBoard extends StatelessWidget {
         style: GoogleFonts.roboto(
           textStyle: const TextStyle(
             color: Colors.white,
-            fontSize: 36,
-            overflow: TextOverflow.visible,
+            fontSize: 40,
+            height: 1.3,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -91,9 +91,9 @@ class OnBoard extends StatelessWidget {
             'TO',
             style: GoogleFonts.roboto(
               textStyle: const TextStyle(
+                height: 1.3,
                 color: Colors.white,
-                fontSize: 36,
-                overflow: TextOverflow.visible,
+                fontSize: 40,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -103,9 +103,9 @@ class OnBoard extends StatelessWidget {
             'UR',
             style: GoogleFonts.roboto(
               textStyle:  const TextStyle(
+                height: 1.3,
                 color: Color(0xff60D0E6),
-                fontSize: 36,
-                overflow: TextOverflow.visible,
+                fontSize: 40,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -118,9 +118,9 @@ class OnBoard extends StatelessWidget {
         'NEXT',
         style: GoogleFonts.roboto(
           textStyle:  const TextStyle(
+            height: 1.3,
             color:Color(0xff60D0E6),
-            fontSize: 36,
-            overflow: TextOverflow.visible,
+            fontSize: 40,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -129,9 +129,9 @@ class OnBoard extends StatelessWidget {
         'ADVENTURE',
         style: GoogleFonts.roboto(
           textStyle:  const TextStyle(
+            height: 1.3,
             color: Colors.white,
-            fontSize: 36,
-            overflow: TextOverflow.visible,
+            fontSize: 40,
             fontWeight: FontWeight.w600,
           ),
         ),
