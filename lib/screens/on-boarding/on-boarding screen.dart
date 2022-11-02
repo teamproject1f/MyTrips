@@ -123,7 +123,7 @@ class OnBoard extends StatelessWidget {
                           child: defaultMaterialButton(
                               function: (){},
                               text: 'Sign up',
-                              color:defaultColor.withOpacity(0.20),
+                              color:defaultColor.withOpacity(0.30),
                           ),
                         ),
                         //  space(0, 50),
