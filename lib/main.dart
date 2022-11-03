@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team1/screens/on_boarding/on_boarding_screen.dart';
+import 'package:team1/screens/password/forget_Password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoard(),
+      home: RestPasswordScreen(),
     );
   }
 }

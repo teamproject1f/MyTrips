@@ -26,7 +26,6 @@ Widget defaultMaterialButton({
       color: color,
       ),
       child: MaterialButton(
-
         clipBehavior : Clip.antiAliasWithSaveLayer,
         height: 22,
         minWidth: 59,
@@ -56,6 +55,8 @@ PreferredSizeWidget defaultAppBar ()=> AppBar(
 );
 
 Widget defaultTextFormField({
+  FocusNode? focusNode,
+  Color? color,
  required BuildContext context,
   required TextEditingController controller,
   required TextInputType keyboardType,
@@ -70,85 +71,84 @@ Widget defaultTextFormField({
   IconData? suffix,
   IconData? prefix,
   Function? suffixPressed,  TextStyle? style,}) {
-  return Container(
-    width: 290,
-    height: 50,
-    padding: EdgeInsets.zero,
-    margin: EdgeInsets.zero,
-    child: TextFormField(
-        style: GoogleFonts.roboto(
-          fontStyle: FontStyle.normal,
-          color:  Colors.white.withOpacity(0.8),
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
+  return TextFormField(
+    focusNode: focusNode,
+  //  textAlignVertical: TextAlignVertical.center,
+      style: GoogleFonts.roboto(
+        fontStyle: FontStyle.normal,
+        color:  Colors.white.withOpacity(0.8),
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+      ),
+      maxLines: 1,
+      minLines: 1,
+      controller: controller,
+      validator: validate,
+      enabled: isClickable,
+      onTap: onTap,
+      onFieldSubmitted: onFieldSubmitted,
+      onChanged: onChanged,
+      obscureText: isPassword,
+      keyboardType: keyboardType,
+      autofocus: false,
+      decoration: InputDecoration(
+        fillColor: color,
+        filled: true,
+        prefixIcon: Icon(
+          prefix,
+      color: Colors.grey,
         ),
-        maxLines: 1,
-        minLines: 1,
-        controller: controller,
-        validator: validate,
-        enabled: isClickable,
-        onTap: onTap,
-        onFieldSubmitted: onFieldSubmitted,
-        onChanged: onChanged,
-        obscureText: isPassword,
-        keyboardType: keyboardType,
-        autofocus: false,
-        decoration: InputDecoration(
-          fillColor: const Color(0xffFFFFFF).withOpacity(0.32),
-          filled: true,
-          prefixIcon: Icon(
-            prefix,
-        color: Colors.grey,
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: () {
+                  suffixPressed!();
+                },
+                icon: Icon(
+                  suffix,
+            color:  Colors.grey,
+                ),
+              ) : null,
+        focusedBorder:  const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.0),
           ),
-          suffixIcon: suffix != null
-              ? IconButton(
-                  onPressed: () {
-                    suffixPressed!();
-                  },
-                  icon: Icon(
-                    suffix,
-              color:  Colors.grey,
-                  ),
-                ) : null,
-          focusedBorder:  const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(
-             color:  Colors.white,
-            ),
+          borderSide: BorderSide(
+           color:  Colors.white,
+
           ),
-          hintText: hint,
-          hintStyle:  TextStyle(
-            color:  Colors.white.withOpacity(0.8),
+        ),
+
+        hintText: hint,
+        hintStyle:  TextStyle(
+          color:  Colors.white.withOpacity(0.8),
+          height: 1,
+        ),
+        enabledBorder:  const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.0),
           ),
-          enabledBorder:  const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(
-              color:  Colors.white,
-            ),
+          borderSide: BorderSide(
+            color:  Colors.white,
           ),
-          errorBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.0),
           ),
-          focusedErrorBorder:  const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
+          borderSide: BorderSide(
+            color: Colors.red,
+          ),
+        ),
+        focusedErrorBorder:  const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.0),
+          ),
+          borderSide: BorderSide(
+            color: Colors.red,
           ),
         ),
       ),
-  );
+    );
 }
 
 
