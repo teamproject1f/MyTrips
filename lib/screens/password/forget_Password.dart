@@ -80,7 +80,7 @@ class RestPasswordScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 50.0),
                             child: defaultTextFormField(
-                              color: const Color(0xff57C7DF).withOpacity(0.6),
+                              color: const Color(0xff938E8E).withOpacity(0.3),
                               context: context,
                               controller: emailController,
                               keyboardType: TextInputType.emailAddress,
@@ -96,17 +96,17 @@ class RestPasswordScreen extends StatelessWidget {
                           ),
                           space(0, 60),
                           state is ResetPasswordLoadingState
-                              ? Center(
-                                  child: Container(
-                                  width: 290,
-                                  height: 43,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(
-                                      10,
-                                    ),
-                                    color: defaultColor,
-                                  ),
-                                  child: Text(
+                              ? Container(
+                              width: 290,
+                              height: 43,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: defaultColor,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
                                     'Check Your Mail',
                                     style: GoogleFonts.roboto(
                                       fontSize: 20,
@@ -114,7 +114,11 @@ class RestPasswordScreen extends StatelessWidget {
                                       color: Colors.red,
                                     ),
                                   ),
-                                ))
+                                  space(10, 0),
+                                  const Icon(Icons.warning),
+                                ],
+                              ),
+                                )
                               : defaultMaterialButton(
                                   color: defaultColor,
                                   text: 'Reset Password',

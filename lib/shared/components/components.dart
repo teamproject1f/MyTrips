@@ -73,13 +73,15 @@ Widget defaultTextFormField({
   Function? suffixPressed,  TextStyle? style,}) {
   return TextFormField(
     focusNode: focusNode,
-  //  textAlignVertical: TextAlignVertical.center,
+      textAlignVertical: TextAlignVertical.center,
       style: GoogleFonts.roboto(
         fontStyle: FontStyle.normal,
-        color:  Colors.white.withOpacity(0.8),
-        fontSize: 16,
+        color:  Colors.black,
+        fontSize: 17,
         fontWeight: FontWeight.w400,
+        height: 0.9
       ),
+      cursorHeight: 25,
       maxLines: 1,
       minLines: 1,
       controller: controller,

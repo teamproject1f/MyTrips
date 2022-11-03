@@ -78,7 +78,7 @@ class OnBoard extends StatelessWidget {
         style: GoogleFonts.roboto(
           textStyle: const TextStyle(
             color: Colors.white,
-            fontSize: 40,
+            fontSize: 45,
             height: 1.3,
             fontWeight: FontWeight.w600,
           ),
@@ -93,7 +93,7 @@ class OnBoard extends StatelessWidget {
               textStyle: const TextStyle(
                 height: 1.3,
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: 45,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -105,13 +105,11 @@ class OnBoard extends StatelessWidget {
               textStyle:  const TextStyle(
                 height: 1.3,
                 color: Color(0xff60D0E6),
-                fontSize: 40,
+                fontSize: 45,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-
-
         ],
       ),
       Text(
@@ -120,7 +118,7 @@ class OnBoard extends StatelessWidget {
           textStyle:  const TextStyle(
             height: 1.3,
             color:Color(0xff60D0E6),
-            fontSize: 40,
+            fontSize: 45,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -131,7 +129,7 @@ class OnBoard extends StatelessWidget {
           textStyle:  const TextStyle(
             height: 1.3,
             color: Colors.white,
-            fontSize: 40,
+            fontSize: 45,
             fontWeight: FontWeight.w600,
           ),
         ),
