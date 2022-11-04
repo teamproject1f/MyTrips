@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:team1/shared/styles/colors.dart';
 import '../../shared/components/components.dart';
 import '../../shared/cubit/restPasswordCubit/rest_password_cubit.dart';
@@ -18,12 +19,56 @@ class RestPasswordScreen extends StatelessWidget {
       create: (context) => ResetPasswordCubit(),
       child: BlocConsumer<ResetPasswordCubit, ResetPasswordStates>(
         listener: (context, state) {
+          if (state is ResetPasswordLoadingState) {
+            Alert(
+              style: AlertStyle(
+                animationType: AnimationType.grow,
+                animationDuration: const Duration(milliseconds: 2000),
+                backgroundColor: defaultWhiteColor,
+                isCloseButton: false,
+                descStyle: GoogleFonts.roboto(
+                  color: Colors.green,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+           //   padding: EdgeInsets.zero,
+              image: Image(
+                    image: warningImage,
+                height: 200,
+                width: 300,
+                fit: BoxFit.cover,
+
+                  ),
+              context: context,
+              desc: "Check your mail",
+              buttons: [
+
+                DialogButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  color: defaultColor,
+                  child: Text(
+                    "Done",
+
+                    style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700
+                    ),
+                  ),
+                )
+              ],
+            ).show();
+          }
           if (state is ResetPasswordSuccessState) {
             //  navigateAndFinish(context, const LoginScreen());
           }
         },
         builder: (context, state) {
           //  var cubit = SocialCubit.get(context);
+
           return Scaffold(
             appBar: AppBar(
               systemOverlayStyle: const SystemUiOverlayStyle(
@@ -61,7 +106,7 @@ class RestPasswordScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20,top: 20),
+                      padding: const EdgeInsets.only(left: 20, top: 20),
                       child: Text(
                         'Enter the E-mail address\nassociated with your account',
                         style: GoogleFonts.roboto(
@@ -71,14 +116,14 @@ class RestPasswordScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     const Image(image: resetPasswordImage),
                     space(0, 10),
                     Center(
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 50.0),
                             child: defaultTextFormField(
                               color: const Color(0xff938E8E).withOpacity(0.3),
                               context: context,
@@ -95,43 +140,17 @@ class RestPasswordScreen extends StatelessWidget {
                             ),
                           ),
                           space(0, 60),
-                          state is ResetPasswordLoadingState
-                              ? Container(
-                              width: 290,
-                              height: 43,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: defaultColor,
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Check Your Mail',
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                  space(10, 0),
-                                  const Icon(Icons.warning),
-                                ],
-                              ),
-                                )
-                              : defaultMaterialButton(
-                                  color: defaultColor,
-                                  text: 'Reset Password',
-                                  function: () {
-                                    if (loginFormKey.currentState!.validate()) {
-                                      ResetPasswordCubit.get(context)
-                                          .resetPassword(
-                                        email: emailController.text,
-                                      );
-                                    }
-                                  },
-                                ),
-
+                          defaultMaterialButton(
+                            color: defaultColor,
+                            text: 'Reset Password',
+                            function: () {
+                              if (loginFormKey.currentState!.validate()) {
+                                ResetPasswordCubit.get(context).resetPassword(
+                                  email: emailController.text,
+                                );
+                              }
+                            },
+                          ),
                         ],
                       ),
                     ),

@@ -26,7 +26,7 @@ class OnBoard extends StatelessWidget {
             appBar: defaultAppBar(),
             backgroundColor: Colors.transparent,
             body: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(50.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -34,6 +34,7 @@ class OnBoard extends StatelessWidget {
                   welcomeText(),
                   space(0, 60),
                   button(),
+                  const Spacer(flex: 1),
                 ],
               ),
             ),

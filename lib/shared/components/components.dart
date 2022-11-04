@@ -26,6 +26,7 @@ Widget defaultMaterialButton({
       color: color,
       ),
       child: MaterialButton(
+
         clipBehavior : Clip.antiAliasWithSaveLayer,
         height: 22,
         minWidth: 59,
@@ -246,7 +247,7 @@ Widget baseAlertDialog({
   IconData? elevatedButtonIcon,
 }){
   return AlertDialog(
-    //backgroundColor: SocialCubit.get(context).backgroundColor.withOpacity(1),
+    backgroundColor:Colors.red,
     title: Text('$title',style: const TextStyle(color: Colors.red),),
     titlePadding: const EdgeInsetsDirectional.only(start:13,top: 15 ),
     content: Text('$content',style: const TextStyle(color: Colors.grey,),),
