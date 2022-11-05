@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team1/shared/cubit/registerCubit/state.dart';
 import 'package:team1/shared/styles/styles.dart';
 import '../../../model/user_model.dart';
+import '../../components/components.dart';
 
 
 class RegisterCubit extends Cubit<RegisterStates> {
@@ -15,7 +16,6 @@ class RegisterCubit extends Cubit<RegisterStates> {
 void userRegister({
   required String email,
   required String password,
-  required String phone,
   required String name,
 })async {
   debugPrint('Done');
@@ -27,7 +27,6 @@ FirebaseAuth.instance.createUserWithEmailAndPassword(
 {
   userCreate(
       email: email,
-      phone: phone,
       name: name,
       uId: value.user!.uid
   );
@@ -39,7 +38,6 @@ FirebaseAuth.instance.createUserWithEmailAndPassword(
 
 void userCreate({
   required String email,
-  required String phone,
   required String name,
   required String uId,
 })
@@ -49,16 +47,23 @@ void userCreate({
     name: name,
     uId: uId,
     image: profileImage,
-    isEmailVerified : false,
   );
   FirebaseFirestore.instance
       .collection('users')
       .doc(uId)
       .set(model.toMap())
       .then((value) {
+    showToast(
+      state: ToastStates.success,
+      text: 'Sign up Successful',
+    );
 emit(UserCreateSuccessState(uId));
   }).catchError((error)
   {
+    showToast(
+      state: ToastStates.error,
+      text: 'Sign up Rejected',
+    );
     emit(UserCreateErrorState(error));
   });
 }

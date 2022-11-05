@@ -11,7 +11,7 @@ class OnBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    SizeConfig().init(context);
     return Stack(
       children: [
         Container(

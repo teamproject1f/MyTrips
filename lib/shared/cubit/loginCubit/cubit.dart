@@ -1,8 +1,8 @@
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team1/shared/cubit/loginCubit/state.dart';
+import '../../components/components.dart';
 
 
 
@@ -20,9 +20,16 @@ class LoginCubit extends Cubit<LoginStates> {
   await  FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
-
+    showToast(
+      state: ToastStates.success,
+      text: 'Sign in Successful',
+    );
       emit(LoginSuccessState(value.user!.uid));
     }).catchError((error) {
+    showToast(
+      state: ToastStates.error,
+      text: 'email isn\'t valid',
+    );
       emit(LoginErrorState(error.toString()));
     });
   }
@@ -39,25 +46,4 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(ShowPasswordState());
   }
 ///END : Show Password
-
-
-  ///START : isEmailVerified
-  bool isEmailVerified = false;
-  Future<void> loginReloadUser() async {
-    emit(LoginReloadLoadingState());
-    await FirebaseAuth.instance.currentUser!.reload()
-        .then((value){
-      if (FirebaseAuth.instance.currentUser!.emailVerified)
-      {
-        isEmailVerified = true;
-
-      }
-
-      emit(LoginReloadSuccessState());
-    })
-        .catchError((error){
-      emit(LoginReloadErrorState(error.toString()));
-    });
-  }
-  ///END : isEmailVerified
 }
