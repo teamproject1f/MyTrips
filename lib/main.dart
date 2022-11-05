@@ -6,7 +6,6 @@ import 'package:team1/screens/on_boarding/on_boarding_screen.dart';
 import 'package:team1/screens/splash/splash_screen.dart';
 import 'package:team1/shared/bloc_observer.dart';
 import 'package:team1/shared/components/constants.dart';
-
 import 'layout/home_layout.dart';
 import 'shared/network/cache_helper.dart';
 
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
 
-    return  MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
