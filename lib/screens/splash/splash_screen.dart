@@ -109,7 +109,10 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
       } else {
         widget = const OnBoard();
       }
-      navigateAndFinish(context, widget);
+    navigateAndFinish(context, widget);
+    //   Navigator.of(context).pushAndRemoveUntil(Routing().createRoute(widget),(route) {
+    //     return false;
+    //   });
     });
   }
 }

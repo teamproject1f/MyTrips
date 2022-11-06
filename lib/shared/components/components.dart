@@ -193,21 +193,35 @@ Color chooseToastColor(ToastStates state) {
 void navigateTo(context, widget) {
   Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => widget,
-      ),
-    );
+      Routing().createRoute(widget));
 }
 
 void navigateAndFinish(context, widget) {
   Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => widget,
-        ), (route) {
-      return false;
-    });
+      context,
+      Routing().createRoute(widget), (route) {
+    return false;
+  });
 }
+
+class Routing{
+  Route createRoute(widget) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>  widget,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.3, 0.0);
+        const end = Offset.infinite;
+        const curve = Curves.ease;
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+            position: animation.drive(tween),
+            child: child
+        );
+      },
+    );
+  }
+}
+
 
 void logOut(context) {
   CacheHelper.removeData(
@@ -369,6 +383,9 @@ class SizeConfig {
         : screenWidth! * .024;
 
     print('this is the default size $defaultSize');
+    print('this is the screenHeight  $screenHeight');
+    print('this is the screenWidth $screenWidth');
   }
-}
 
+
+}
