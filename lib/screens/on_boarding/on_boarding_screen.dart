@@ -32,9 +32,9 @@ class OnBoard extends StatelessWidget {
                 children: [
                   const Spacer(flex: 1),
                   welcomeText(),
-                  space(0, 60),
+                  space(0, 100),
                   button(),
-                  const Spacer(flex: 1),
+                  space(0, 60),
                 ],
               ),
             ),

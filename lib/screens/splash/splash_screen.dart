@@ -95,7 +95,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
 
   void goToNextView() {
     Future.delayed(const Duration(seconds: 6), () {
-      navigateTo(context, const OnBoard());
+      navigateAndFinish(context, const OnBoard());
     });
   }
 }
