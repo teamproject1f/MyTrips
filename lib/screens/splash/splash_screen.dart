@@ -39,7 +39,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 5));
     fadingAnimation =
-        Tween<double>(begin: 0.2, end: 1).animate(animationController!);
+        Tween<double>(begin: 0.5, end: 1).animate(animationController!);
 
     animationController?.repeat(reverse: true);
 
