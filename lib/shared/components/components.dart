@@ -95,6 +95,7 @@ Widget defaultTextFormField({
       keyboardType: keyboardType,
       autofocus: false,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.zero,
         fillColor: color,
         filled: true,
         prefixIcon: Icon(
