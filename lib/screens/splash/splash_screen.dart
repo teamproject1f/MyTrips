@@ -4,7 +4,9 @@ import 'package:team1/screens/on_boarding/on_boarding_screen.dart';
 import 'package:team1/shared/styles/colors.dart';
 import 'package:team1/shared/styles/styles.dart';
 
+import '../../layout/home_layout.dart';
 import '../../shared/components/components.dart';
+import '../../shared/components/constants.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -94,8 +96,14 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
   }
 
   void goToNextView() {
+    Widget widget;
     Future.delayed(const Duration(seconds: 6), () {
-      navigateAndFinish(context, const OnBoard());
+      if (uId != null) {
+        widget =  const HomeLayout();
+      }else {
+        widget = const OnBoard();
+      }
+      navigateAndFinish(context,widget);
     });
   }
 }
