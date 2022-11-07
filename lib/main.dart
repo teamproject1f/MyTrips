@@ -16,6 +16,7 @@ void main() async {
 
   uId = CacheHelper.getData(key: 'uId');
 
+
   runApp(const MyApp());
 }
 
