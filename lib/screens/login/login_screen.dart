@@ -27,131 +27,128 @@ class LoginScreen extends StatelessWidget {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: defaultAppBar(),
-            body: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    space(0, 180),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: const Text('Email Address',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                      space(0, 8),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: defaultTextFormField(
-                        color: Colors.white30,
-                        context: context,
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        validate: (String? value)
-                        {
-                          if(value!.isEmpty)
-                          {
-                            'please Enter Your Email Address';
-                          }
-                        },
-                        hint: 'Email Address',
-                      ),
-                    ),
-                    space(0, 40),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: const Text('Password',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      ),
-                    ),
-                    space(0, 8),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: defaultTextFormField(
-                        color: Colors.white30,
-                        context: context,
-                        controller: passwordController,
-                        keyboardType: TextInputType.visiblePassword,
-                        validate: (String? value)
-                        {
-                          if(value!.isEmpty)
-                          {
-                            'please Enter Your Password';
-                          }
-                        },
-                        hint: 'Enter Password',
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                              onPressed: ()
-                              {
-                               Navigator.push(
-                                 context,
-                                 MaterialPageRoute(builder: (context) => const RestPasswordScreen())
-                               );
-                              },
-                              child: const Text(
-                                'Forgot Password ?',
-                                    style: TextStyle(
-                                      color: defaultColor,
-                                    ),
-                              ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    space(0, 100),
-                    Center(
-                      child: defaultMaterialButton(
-                        function: ()
-                        {
-                       //   navigateAndFinish(context, const HomeLayout());
-                        },
-                        text: 'Sign in',
-                        color:defaultColor,
-                      ),
-                    ),
-                    space(0, 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Don\'t have an account?',
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  space(0, 240),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:
+                      [
+                        const Text('Email Address',
                           style: TextStyle(
-                            color: Colors.white
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                        TextButton(
-
-                          onPressed: ()
+                        space(0, 8),
+                        defaultTextFormField(
+                          color: Colors.white30,
+                          context: context,
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          validate: (String? value)
                           {
-                                // navigateAndFinish(context, const RegisterScreen());
-                            navigateTo(context, const RegisterScreen());
+                            if(value!.isEmpty)
+                            {
+                              'please Enter Your Email Address';
+                            }
+                            return null;
                           },
-                          child: const Text(
-                            'Sign up',
-                            style: TextStyle(
-                              color: defaultColor,
-                            ),
+                          hint: 'Email Address',
+                        ),
+                        space(0, 26),
+                        const Text('Password',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                           ),
+                        ),
+                        space(0, 8),
+                        defaultTextFormField(
+                          color: Colors.white30,
+                          context: context,
+                          controller: passwordController,
+                          keyboardType: TextInputType.visiblePassword,
+                          validate: (String? value)
+                          {
+                            if(value!.isEmpty)
+                            {
+                              'please Enter Your Password';
+                            }
+                            return null;
+                          },
+                          hint: 'Enter Password',
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  space(0, 17),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+
+                            onPressed: ()
+                            {
+                             navigateTo(context, const RestPasswordScreen());
+                            },
+                            child: const Text(
+                              'Forgot Password ?',
+                                  style: TextStyle(
+                                    color: defaultColor,
+                                  ),
+                            ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  space(0, 104),
+                  Center(
+                    child: defaultMaterialButton(
+                      function: ()
+                      {
+                     //   navigateAndFinish(context, const HomeLayout());
+                      },
+                      text: 'Sign in',
+                      color:defaultColor,
+                    ),
+                  ),
+                  space(0, 28),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Don\'t have an account?',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                      TextButton(
+
+                        onPressed: ()
+                        {
+                              // navigateAndFinish(context, const RegisterScreen());
+                          navigateTo(context, const RegisterScreen());
+                        },
+                        child: const Text(
+                          'Sign up',
+                          style: TextStyle(
+                            color: defaultColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  space(0, 79),
+                ],
               ),
             ),
           ),
