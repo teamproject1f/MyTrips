@@ -28,15 +28,16 @@ class OnBoard extends StatelessWidget {
             appBar: defaultAppBar(),
             backgroundColor: Colors.transparent,
             body: Padding(
-              padding: const EdgeInsets.all(50.0),
+              padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(flex: 1),
+                  space(0, 186),
                   welcomeText(),
-                  space(0, 100),
+                  space(0, 89),
                   button(context),
-                  space(0, 60),
+                  space(0, 186),
+
                 ],
               ),
             ),
@@ -127,16 +128,13 @@ class OnBoard extends StatelessWidget {
         ),
         space(0, 26),
 
-        Padding(
-          padding: const EdgeInsets.only(bottom: 10.0),
-          child: defaultMaterialButton(
-            function: ()
-            {
-              navigateAndFinish(context, RegisterScreen());
-            },
-            text: 'Sign up',
-            color:defaultColor.withOpacity(0.30),
-          ),
+        defaultMaterialButton(
+          function: ()
+          {
+            navigateAndFinish(context, RegisterScreen());
+          },
+          text: 'Sign up',
+          color:defaultColor.withOpacity(0.30),
         ),
         //  space(0, 50),
       ],

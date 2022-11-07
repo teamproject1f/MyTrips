@@ -23,7 +23,7 @@ class RestPasswordScreen extends StatelessWidget {
             Alert(
               style: AlertStyle(
                 animationType: AnimationType.grow,
-                animationDuration: const Duration(milliseconds: 2000),
+                animationDuration: const Duration(milliseconds: 1500),
                 backgroundColor: defaultWhiteColor,
                 isCloseButton: false,
                 descStyle: GoogleFonts.roboto(
@@ -106,7 +106,7 @@ class RestPasswordScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 20, top: 20),
                       child: Text(
-                        'Enter the E-mail address\nassociated with your account',
+                        'Please enter your e-mail and we will email you a link to reset your password.',
                         style: GoogleFonts.roboto(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

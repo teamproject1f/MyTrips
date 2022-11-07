@@ -53,6 +53,10 @@ PreferredSizeWidget defaultAppBar ()=> AppBar(
   ),
   backgroundColor: Colors.transparent,
   elevation: 0,
+  scrolledUnderElevation: 0,
+  toolbarHeight: 0,
+
+
 );
 
 Widget defaultTextFormField({
