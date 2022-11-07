@@ -52,7 +52,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+   SizeConfig().init(context);
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
