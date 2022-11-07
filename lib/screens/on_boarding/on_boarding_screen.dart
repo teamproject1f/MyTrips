@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:team1/screens/login/login_screen.dart';
+import 'package:team1/screens/register/register_screen.dart';
 import 'package:team1/shared/components/components.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/styles/styles.dart';
@@ -33,7 +35,7 @@ class OnBoard extends StatelessWidget {
                   const Spacer(flex: 1),
                   welcomeText(),
                   space(0, 100),
-                  button(),
+                  button(context),
                   space(0, 60),
                 ],
               ),
@@ -111,14 +113,14 @@ class OnBoard extends StatelessWidget {
     ],
   ) ;
 
-  Widget button ()=> Center(
+  Widget button (context)=> Center(
     child: Column(
       children: [
 
         defaultMaterialButton(
           function: ()
           {
-            // navigateTo(context, widget);
+            navigateTo(context, LoginScreen());
           },
           text: 'Sign in',
           color:defaultColor,
@@ -128,7 +130,10 @@ class OnBoard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 10.0),
           child: defaultMaterialButton(
-            function: (){},
+            function: ()
+            {
+              navigateTo(context, RegisterScreen());
+            },
             text: 'Sign up',
             color:defaultColor.withOpacity(0.30),
           ),
