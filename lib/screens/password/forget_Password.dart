@@ -33,7 +33,7 @@ class RestPasswordScreen extends StatelessWidget {
                 ),
               ),
            //   padding: EdgeInsets.zero,
-              image: Image(
+              image: const Image(
                     image: warningImage,
                 height: 200,
                 width: 300,
@@ -67,8 +67,6 @@ class RestPasswordScreen extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          //  var cubit = SocialCubit.get(context);
-
           return Scaffold(
             appBar: AppBar(
               systemOverlayStyle: const SystemUiOverlayStyle(

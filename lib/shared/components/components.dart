@@ -210,9 +210,9 @@ class Routing{
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>  widget,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.3, 0.0);
-        const end = Offset.infinite;
-        const curve = Curves.ease;
+        const begin = Offset(0.1, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.bounceIn;
         var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         return SlideTransition(
             position: animation.drive(tween),
@@ -383,9 +383,9 @@ class SizeConfig {
         ? screenHeight! * .024
         : screenWidth! * .024;
 
-    print('this is the default size $defaultSize');
-    print('this is the screenHeight  $screenHeight');
-    print('this is the screenWidth $screenWidth');
+    debugPrint('this is the default size $defaultSize');
+    debugPrint('this is the screenHeight  $screenHeight');
+    debugPrint('this is the screenWidth $screenWidth');
   }
 
 
