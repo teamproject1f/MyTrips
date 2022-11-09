@@ -14,6 +14,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordStates> {
   })
   {
     emit(ResetPasswordLoadingState());
+
     FirebaseAuth.instance.sendPasswordResetEmail(
       email: email,
     ).then((value) {

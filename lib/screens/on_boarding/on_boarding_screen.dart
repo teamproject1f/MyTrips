@@ -31,12 +31,11 @@ class OnBoard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Center(
                 child: Column(
-
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     space(0, 250),
                     welcomeText(),
-                    space(0, 89),
+                    space(0, 60),
                     button(context),
                     space(0, 89),
                   ],
