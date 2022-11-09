@@ -57,7 +57,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(splashImage),
+          image: AssetImage(AssetPath.splashImage),
           fit: BoxFit.cover,
         ),
       ),

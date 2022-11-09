@@ -75,18 +75,18 @@ Widget defaultTextFormField({
   InputDecoration? decoration,
   IconData? suffix,
   IconData? prefix,
-  Function? suffixPressed,  TextStyle? style,}) {
+  Function? suffixPressed,
+  TextStyle? style,
+}) {
   return TextFormField(
     focusNode: focusNode,
       textAlignVertical: TextAlignVertical.center,
       style: GoogleFonts.roboto(
         fontStyle: FontStyle.normal,
-        color:  Colors.black,
+        color:  Colors.white,
         fontSize: 17,
         fontWeight: FontWeight.w400,
-        height: 0.9
       ),
-      cursorHeight: 25,
       maxLines: 1,
       minLines: 1,
       controller: controller,
@@ -122,10 +122,8 @@ Widget defaultTextFormField({
           ),
           borderSide: BorderSide(
            color:  Colors.white,
-
           ),
         ),
-
         hintText: hint,
         hintStyle:  TextStyle(
           color:  Colors.white.withOpacity(0.8),
@@ -139,7 +137,8 @@ Widget defaultTextFormField({
             color:  Colors.white,
           ),
         ),
-        errorBorder: const OutlineInputBorder(
+        errorBorder:  const OutlineInputBorder(
+
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/shared/cubit/loginCubit/state.dart';
+import 'package:team1/shared/cubit/SignInCubit/state.dart';
 import '../../components/components.dart';
 
 

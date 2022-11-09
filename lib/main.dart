@@ -17,7 +17,6 @@ void main() async {
 
   uId = CacheHelper.getData(key: 'uId');
 
-
   runApp(const MyApp());
 }
 
@@ -27,20 +26,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      builder: (context, child) => ResponsiveWrapper.builder(
-          child,
+    return MaterialApp(
+      builder: (context, child) => ResponsiveWrapper.builder(child,
           maxWidth: 1200,
-          minWidth: 393,
+          minWidth: 390,
           defaultScale: true,
-          breakpoints: [
-            ResponsiveBreakpoint.resize(393, name: MOBILE),
+          breakpoints: const [
+            ResponsiveBreakpoint.resize(390, name: MOBILE),
             ResponsiveBreakpoint.autoScale(800, name: TABLET),
             ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
-          background: Container(color: Color(0xFFF5F5F5))),
+          background: Container(color: const Color(0xFFF5F5F5))),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

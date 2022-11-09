@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
-const splashImage = "assets/images/splash.png";
-const onBoardImage = AssetImage("assets/images/onBoard.png");
-const signINImage = AssetImage("assets/images/signIN.png");
-const signUPImage = AssetImage("assets/images/signUP.png");
-const profileImage = AssetImage("assets/images/profile.png");
-const resetPasswordImage = AssetImage("assets/images/reset_password.png");
-const checkImage = AssetImage("assets/images/check.png");
-const warningImage = AssetImage("assets/images/warning.png");
+
+class AssetPath{
+
+  static  const String splashImage = "assets/images/splash.png";
+  static const String profileImage = "assets/images/profile.png";
+
+
+  static  const String  onBoardImage = "assets/images/onBoard.png";
+  static  const String  signINImage = "assets/images/signIN.png";
+  static  const String  signUPImage = "assets/images/signUP.png";
+  static  const String  resetPasswordImage = "assets/images/reset_password.png";
+  static  const String  checkImage = "assets/images/check.png";
+  static  const String  warningImage = "assets/images/warning.png";
+}
+
+
+
+
 

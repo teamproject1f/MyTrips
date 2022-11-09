@@ -34,7 +34,7 @@ class RestPasswordScreen extends StatelessWidget {
               ),
            //   padding: EdgeInsets.zero,
               image: const Image(
-                    image: warningImage,
+                    image: AssetImage(AssetPath.warningImage) ,
                 height: 200,
                 width: 300,
                 fit: BoxFit.cover,
@@ -114,7 +114,7 @@ class RestPasswordScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Image(image: resetPasswordImage),
+                    const Image(image:  AssetImage(AssetPath.resetPasswordImage)),
                     space(0, 10),
                     Center(
                       child: Column(
