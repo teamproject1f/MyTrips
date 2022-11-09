@@ -29,15 +29,18 @@ class OnBoard extends StatelessWidget {
             backgroundColor: Colors.transparent,
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  space(0, 186),
-                  Expanded(child: welcomeText()),
-                  space(0, 89),
-                  button(context),
+              child: Center(
+                child: Column(
 
-                ],
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    space(0, 250),
+                    welcomeText(),
+                    space(0, 89),
+                    button(context),
+                    space(0, 89),
+                  ],
+                ),
               ),
             ),
           ),
