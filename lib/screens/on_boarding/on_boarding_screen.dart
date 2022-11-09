@@ -33,10 +33,10 @@ class OnBoard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   space(0, 186),
-                  welcomeText(),
+                  Expanded(child: welcomeText()),
                   space(0, 89),
                   button(context),
-                  space(0, 186),
+
                 ],
               ),
             ),
