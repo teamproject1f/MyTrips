@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "815882763267",
-    "project_id": "team1-f27a6",
-    "storage_bucket": "team1-f27a6.appspot.com"
+    "project_id": "TRIPSO-f27a6",
+    "storage_bucket": "TRIPSO-f27a6.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:815882763267:android:85b298e5b130fb6af9e236",
         "android_client_info": {
-          "package_name": "com.example.team1"
+          "package_name": "com.example.TRIPSO"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "815882763267-k1fqroj6h0e6lm0tlnjsltqolf14b4f2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.team1",
+            "package_name": "com.example.TRIPSO",
             "certificate_hash": "12e391aa113091890ea7b852db6202002a463135"
           }
         },

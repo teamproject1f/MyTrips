@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:team1/shared/styles/colors.dart';
+import 'package:TRIPSO/shared/styles/colors.dart';
 import '../../shared/components/components.dart';
 import '../../shared/cubit/restPasswordCubit/restPassword_Cubit.dart';
 import '../../shared/cubit/restPasswordCubit/restPassword_State.dart';

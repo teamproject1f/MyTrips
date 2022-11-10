@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:team1/screens/login/login_screen.dart';
-import 'package:team1/screens/register/register_screen.dart';
-import 'package:team1/shared/components/components.dart';
+import 'package:TRIPSO/screens/login/login_screen.dart';
+import 'package:TRIPSO/screens/register/register_screen.dart';
+import 'package:TRIPSO/shared/components/components.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/styles/styles.dart';
 import 'package:google_fonts/google_fonts.dart';

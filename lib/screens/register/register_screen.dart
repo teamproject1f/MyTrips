@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/screens/home/home_screen.dart';
-import 'package:team1/shared/styles/styles.dart';
+import 'package:TRIPSO/screens/home/home_screen.dart';
+import 'package:TRIPSO/shared/styles/styles.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
  import '../../shared/cubit/SignUpCubit/signUp_cubit.dart';

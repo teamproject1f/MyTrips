@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/shared/components/components.dart';
-import 'package:team1/shared/styles/colors.dart';
+import 'package:TRIPSO/shared/components/components.dart';
+import 'package:TRIPSO/shared/styles/colors.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/cubit/SignInCubit/signIn_Cubit.dart';
 import '../../shared/cubit/SignInCubit/signIn_State.dart';

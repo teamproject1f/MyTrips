@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:team1/shared/components/components.dart';
+import 'package:TRIPSO/shared/components/components.dart';
 
 class HomeScreen extends StatelessWidget {
 

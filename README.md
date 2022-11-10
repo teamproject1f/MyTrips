@@ -1,4 +1,4 @@
-# team1
+# TRIPSO
 
 A new Flutter project.
 

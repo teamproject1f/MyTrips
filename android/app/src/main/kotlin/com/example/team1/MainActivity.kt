@@ -1,4 +1,4 @@
-package com.example.team1
+package com.example.TRIPSO
 
 import io.flutter.embedding.android.FlutterActivity
 

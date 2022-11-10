@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:team1/screens/home/home_screen.dart';
-import 'package:team1/screens/on_boarding/on_boarding_screen.dart';
-import 'package:team1/shared/styles/colors.dart';
-import 'package:team1/shared/styles/styles.dart';
+import 'package:TRIPSO/screens/home/home_screen.dart';
+import 'package:TRIPSO/screens/on_boarding/on_boarding_screen.dart';
+import 'package:TRIPSO/shared/styles/colors.dart';
+import 'package:TRIPSO/shared/styles/styles.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
 

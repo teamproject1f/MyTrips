@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/shared/cubit/SignUpCubit/signUp_state.dart';
-import 'package:team1/shared/styles/styles.dart';
+import 'package:TRIPSO/shared/cubit/SignUpCubit/signUp_state.dart';
+import 'package:TRIPSO/shared/styles/styles.dart';
 import '../../../model/user_model.dart';
 import '../../components/components.dart';
 
