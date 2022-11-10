@@ -1,8 +1,8 @@
+import 'package:TRIPSO/shared/components/alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:TRIPSO/shared/styles/colors.dart';
 import '../../shared/components/buttons.dart';
 import '../../shared/components/navigator.dart';
@@ -11,6 +11,7 @@ import '../../shared/components/text_form_field.dart';
 import '../../shared/cubit/restPasswordCubit/rest_password_cubit.dart';
 import '../../shared/cubit/restPasswordCubit/rest_password_state.dart';
 import '../../shared/styles/styles.dart';
+import '../sign_in/sign_in_screen.dart';
 
 class RestPasswordScreen extends StatelessWidget {
   const RestPasswordScreen({Key? key}) : super(key: key);
@@ -23,45 +24,16 @@ class RestPasswordScreen extends StatelessWidget {
       child: BlocConsumer<ResetPasswordCubit, ResetPasswordStates>(
         listener: (context, state) {
           if (state is ResetPasswordLoadingState) {
-            Alert(
-              style: AlertStyle(
-                animationType: AnimationType.grow,
-                animationDuration: const Duration(milliseconds: 1500),
-                backgroundColor: secondaryColor,
-                isCloseButton: false,
-                descStyle: GoogleFonts.roboto(
-                    color: Colors.green,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700),
-              ),
-              //   padding: EdgeInsets.zero,
-              image: const Image(
-                image: AssetImage(AssetPath.warningImage),
-                height: 200,
-                width: 300,
-                fit: BoxFit.cover,
-              ),
-              context: context,
-              desc: "Check your mail",
-              buttons: [
-                DialogButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  color: primaryColor,
-                  child: Text(
-                    "Done",
-                    style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700),
-                  ),
-                )
-              ],
-            ).show();
+         alertDialog(
+             context: context,
+             color:  Colors.green,
+             image: AssetPath.warningImage,
+             title: 'Check your mail',
+             text: 'Done',
+         );
           }
           if (state is ResetPasswordSuccessState) {
-            //  navigateAndFinish(context, const LoginScreen());
+              navigateAndFinish(context, const SignInScreen());
           }
         },
         builder: (context, state) {

@@ -6,6 +6,7 @@ import '../../shared/components/app_bar.dart';
 import '../../shared/components/buttons.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/components/navigator.dart';
+import '../../shared/components/scrollable_form.dart';
 import '../../shared/components/show_toast.dart';
 import '../../shared/components/sized_box.dart';
 import '../../shared/components/text_form_field.dart';
@@ -49,10 +50,7 @@ class RegisterScreen extends StatelessWidget {
               child: Scaffold(
                 backgroundColor: Colors.transparent,
                 appBar: defaultAppBar(),
-                body: CustomScrollView(
-                  slivers: [
-                    SliverFillRemaining(
-                      hasScrollBody: false,
+                body: customScrollableForm(
                       child: Form(
                         key: formKey,
                         child: Column(
@@ -233,8 +231,6 @@ class RegisterScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
-                  ],
                 ),
               ),
             ),

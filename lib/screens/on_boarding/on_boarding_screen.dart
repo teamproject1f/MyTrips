@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:TRIPSO/screens/login/login_screen.dart';
-import 'package:TRIPSO/screens/register/register_screen.dart';
+import 'package:TRIPSO/screens/sign_in/sign_in_screen.dart';
+import 'package:TRIPSO/screens/sign_up/sign_up_screen.dart';
 import '../../shared/components/app_bar.dart';
 import '../../shared/components/buttons.dart';
 import '../../shared/components/navigator.dart';
+import '../../shared/components/scrollable_form.dart';
 import '../../shared/components/sized_box.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/styles/styles.dart';
@@ -30,9 +31,7 @@ class OnBoard extends StatelessWidget {
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Center(
-                child: CustomScrollView(slivers: [
-                  SliverFillRemaining(
-                    hasScrollBody: false,
+                child: customScrollableForm(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -43,7 +42,6 @@ class OnBoard extends StatelessWidget {
                       ],
                     ),
                   ),
-                ]),
               ),
             ),
           ),

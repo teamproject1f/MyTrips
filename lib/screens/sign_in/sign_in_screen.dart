@@ -6,6 +6,7 @@ import '../../shared/components/app_bar.dart';
 import '../../shared/components/buttons.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/components/navigator.dart';
+import '../../shared/components/scrollable_form.dart';
 import '../../shared/components/show_toast.dart';
 import '../../shared/components/sized_box.dart';
 import '../../shared/components/text_form_field.dart';
@@ -14,7 +15,7 @@ import '../../shared/cubit/SignInCubit/sign_in_state.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/styles.dart';
 import '../password/forget_password.dart';
-import '../register/register_screen.dart';
+import '../sign_up/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -52,9 +53,7 @@ class SignInScreen extends StatelessWidget {
               child: Scaffold(
                 backgroundColor: Colors.transparent,
                 appBar: defaultAppBar(),
-                body: CustomScrollView(slivers: [
-                  SliverFillRemaining(
-                    hasScrollBody: false,
+                body: customScrollableForm(
                     child: Form(
                       key: formKey,
                       child: Column(
@@ -185,7 +184,6 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ]),
               ),
             ),
           ],

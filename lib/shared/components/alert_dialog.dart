@@ -1,45 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import '../styles/colors.dart';
 
-Widget baseAlertDialog({
+Future<bool?> alertDialog({
   required context,
-  String? title,
-  String? content,
-  String? outlinedButtonText,
-  String? elevatedButtonText,
-  IconData? elevatedButtonIcon,
+  required Color color,
+  required String image,
+  required String title,
+  required String text,
 }){
-  return AlertDialog(
-    backgroundColor:Colors.red,
-    title: Text('$title',style: const TextStyle(color: Colors.red),),
-    titlePadding: const EdgeInsetsDirectional.only(start:13,top: 15 ),
-    content: Text('$content',style: const TextStyle(color: Colors.grey,),),
-    elevation: 8,
-    contentPadding: const EdgeInsets.all(15),
-    actions: [
-      OutlinedButton(
-          onPressed: (){
-            Navigator.of(context).pop(false);
-          },
-          child: Text('$outlinedButtonText')
-      ),
-      SizedBox(
-        width: 115,
-        child: ElevatedButton(
-          style:ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.blueAccent)) ,
-          onPressed: (){
-            Navigator.of(context).pop(true);
-          },
-          child:Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(elevatedButtonIcon),
-              const SizedBox(width: 5,),
-              Text('$elevatedButtonText',style: const TextStyle(color: Colors.white)),
-            ],
-          ),
+  return Alert(
+    style: AlertStyle(
+      animationType: AnimationType.grow,
+      animationDuration: const Duration(milliseconds: 1500),
+      backgroundColor: secondaryColor,
+      isCloseButton: false,
+      descStyle: GoogleFonts.roboto(
+          color: color,
+          fontSize: 24,
+          fontWeight: FontWeight.w700),
+    ),
+    //   padding: EdgeInsets.zero,
+    image:   Image(
+      image: AssetImage(image),
+      height: 200,
+      width: 300,
+      fit: BoxFit.cover,
+    ),
+    context: context,
+    desc: title,
+    buttons: [
+      DialogButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        color: primaryColor,
+        child: Text(
+          text,
+          style: GoogleFonts.roboto(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w700),
         ),
-      ),
+      )
     ],
-
-  );
+  ).show();
 }
