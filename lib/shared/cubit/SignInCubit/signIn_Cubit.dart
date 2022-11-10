@@ -1,22 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/shared/cubit/SignInCubit/state.dart';
+import 'package:team1/shared/cubit/SignInCubit/signIn_State.dart';
 import '../../components/components.dart';
 
 
 
-class LoginCubit extends Cubit<LoginStates> {
-  LoginCubit() : super(LoginInitialState());
+class SignInCubit extends Cubit<SignInStates> {
+  SignInCubit() : super(SignInInitialState());
 
-  static LoginCubit get(context) => BlocProvider.of(context);
-///START : Login With E-mail & Password
-  Future<void> userLogin({
+  static SignInCubit get(context) => BlocProvider.of(context);
+///START : SignIn With E-mail & Password
+  Future<void> userSignIn({
     required String email,
     required String password,
   })async {
     debugPrint('Done');
-    emit(LoginLoadingState());
+    emit(SignInLoadingState());
   await  FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
@@ -24,16 +24,16 @@ class LoginCubit extends Cubit<LoginStates> {
       state: ToastStates.success,
       text: 'Sign in Successful',
     );
-      emit(LoginSuccessState(value.user!.uid));
+      emit(SignInSuccessState(value.user!.uid));
     }).catchError((error) {
     showToast(
       state: ToastStates.error,
       text: 'email isn\'t valid',
     );
-      emit(LoginErrorState(error.toString()));
+      emit(SignInErrorState(error.toString()));
     });
   }
-///END : Login With E-mail & Password
+///END : SignIn With E-mail & Password
 
 ///START : Show Password
   IconData suffix = Icons.visibility_outlined;

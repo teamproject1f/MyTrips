@@ -76,7 +76,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
                     'TRI',
                     style: GoogleFonts.pacifico(
                       textStyle: const TextStyle(
-                        color: defaultColor,
+                        color: primaryColor,
                         fontSize: 45,
                         fontWeight: FontWeight.w400,
                       ),
@@ -86,7 +86,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
                     'PSO',
                     style: GoogleFonts.pacifico(
                       textStyle: const TextStyle(
-                        color: defaultWhiteColor,
+                        color: secondaryColor,
                         fontSize: 45,
                         fontWeight: FontWeight.w400,
                       ),

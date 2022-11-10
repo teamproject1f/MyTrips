@@ -7,19 +7,19 @@ import 'package:team1/shared/styles/styles.dart';
 import '../../../model/user_model.dart';
 import '../../components/components.dart';
 
-class RegisterCubit extends Cubit<RegisterStates> {
-  RegisterCubit() : super(RegisterInitialState());
+class SignUpCubit extends Cubit<SignUpStates> {
+  SignUpCubit() : super(SignUpInitialState());
 
-  static RegisterCubit get(context) => BlocProvider.of(context);
+  static SignUpCubit get(context) => BlocProvider.of(context);
 
-  void userRegister({
+  void userSignUp({
     required String email,
     required String password,
     required String firstName,
     required String lastName,
   }) async {
     debugPrint('Done');
-    emit(RegisterLoadingState());
+    emit(SignUpLoadingState());
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(
       email: email,
@@ -32,7 +32,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
           lastName: lastName,
           uId: value.user!.uid);
     }).catchError((error) {
-      emit(RegisterErrorState(error.toString()));
+      emit(SignUpErrorState(error.toString()));
     });
   }
 
@@ -71,11 +71,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
 
-  void changePassword() {
+  void showPassword() {
     isPassword = !isPassword;
     suffix =
         isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
 
-    emit(ChangePasswordRegisterState());
+    emit(ChangePasswordSignUpState());
   }
 }

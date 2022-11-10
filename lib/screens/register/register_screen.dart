@@ -4,7 +4,7 @@ import 'package:team1/screens/home/home_screen.dart';
 import 'package:team1/shared/styles/styles.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
-import '../../shared/cubit/SignUpCubit/signUp_cubit.dart';
+ import '../../shared/cubit/SignUpCubit/signUp_cubit.dart';
 import '../../shared/cubit/SignUpCubit/signUp_state.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/colors.dart';
@@ -20,8 +20,8 @@ class RegisterScreen extends StatelessWidget {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     return BlocProvider(
-        create: (BuildContext context) => RegisterCubit(),
-        child: BlocConsumer<RegisterCubit, RegisterStates>(
+        create: (BuildContext context) => SignUpCubit(),
+        child: BlocConsumer<SignUpCubit, SignUpStates>(
             listener: (context, state) {
           if (state is UserCreateSuccessState) {
             CacheHelper.saveData(value: state.uid, key: 'uId').then((value) {
@@ -102,6 +102,7 @@ class RegisterScreen extends StatelessWidget {
                                         }
                                         return null;
                                       },
+                                      prefix: Icons.edit_outlined,
                                       hint: 'First Name',
                                     ),
                                     space(0, 20),
@@ -125,6 +126,7 @@ class RegisterScreen extends StatelessWidget {
                                         }
                                         return null;
                                       },
+                                      prefix: Icons.edit_outlined,
                                       hint: 'Last Name',
                                     ),
                                     space(0, 20),
@@ -154,6 +156,7 @@ class RegisterScreen extends StatelessWidget {
                                           return null;
                                         }
                                       },
+                                      prefix: Icons.alternate_email,
                                       hint: 'Email Address',
                                     ),
                                     space(0, 20),
@@ -188,6 +191,12 @@ class RegisterScreen extends StatelessWidget {
                                         }
                                         return null;
                                       },
+                                      prefix: Icons.lock_outline_sharp,
+                                      suffix: SignUpCubit.get(context).suffix,
+                                      isPassword: SignUpCubit.get(context).isPassword,
+                                      suffixPressed: () {
+                                        SignUpCubit.get(context).showPassword();
+                                      },
                                       hint: 'Password',
                                     ),
                                   ],
@@ -197,7 +206,7 @@ class RegisterScreen extends StatelessWidget {
                               defaultMaterialButton(
                                 function: () {
                                   if (formKey.currentState!.validate()) {
-                                    RegisterCubit.get(context).userRegister(
+                                    SignUpCubit.get(context).userSignUp(
                                       email: emailController.text,
                                       password: passwordController.text,
                                       firstName: firstnameController.text,
@@ -206,9 +215,8 @@ class RegisterScreen extends StatelessWidget {
                                   }
                                 },
                                 text: 'Sign up',
-                                color: defaultColor,
+                                color: primaryColor,
                               ),
-                              space(0, 70)
                             ],
                           ),
                         ],

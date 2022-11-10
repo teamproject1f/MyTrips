@@ -1,29 +1,30 @@
-abstract class RegisterStates{}
 
-class RegisterInitialState extends RegisterStates{}
+abstract class SignUpStates{}
 
-class RegisterLoadingState extends RegisterStates{}
+class SignUpInitialState extends SignUpStates{}
 
-class RegisterSuccessState extends RegisterStates{}
+class SignUpLoadingState extends SignUpStates{}
 
-class RegisterErrorState extends RegisterStates{
+class SignUpSuccessState extends SignUpStates{}
+
+class SignUpErrorState extends SignUpStates{
 
   final String error;
 
-  RegisterErrorState(this.error);
+  SignUpErrorState(this.error);
 }
 
-class UserCreateSuccessState extends RegisterStates
+class UserCreateSuccessState extends SignUpStates
 {
  late final String uid;
   UserCreateSuccessState(this.uid);
 }
 
-class UserCreateErrorState extends RegisterStates{
+class UserCreateErrorState extends SignUpStates{
 
   final String error;
 
   UserCreateErrorState(this.error);
 }
 
-class ChangePasswordRegisterState extends RegisterStates{}
+class ChangePasswordSignUpState extends SignUpStates{}

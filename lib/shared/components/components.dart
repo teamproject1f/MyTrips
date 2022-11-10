@@ -104,7 +104,7 @@ Widget defaultTextFormField({
         filled: true,
         prefixIcon: Icon(
           prefix,
-      color: Colors.grey,
+      color: Colors.white,
         ),
         suffixIcon: suffix != null
             ? IconButton(
@@ -113,7 +113,7 @@ Widget defaultTextFormField({
                 },
                 icon: Icon(
                   suffix,
-            color:  Colors.grey,
+            color:  Colors.white,
                 ),
               ) : null,
         focusedBorder:  const OutlineInputBorder(
@@ -153,6 +153,10 @@ Widget defaultTextFormField({
           borderSide: BorderSide(
             color: Colors.red,
           ),
+        ),
+        errorStyle: const TextStyle(
+          color: Colors.red,
+          fontSize: 15
         ),
       ),
     );

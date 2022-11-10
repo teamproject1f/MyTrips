@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team1/shared/cubit/restPasswordCubit/rest_password_state.dart';
+import 'package:team1/shared/cubit/restPasswordCubit/restPassword_State.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordStates> {
   ResetPasswordCubit() : super(ResetPasswordInitialState());
@@ -14,7 +14,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordStates> {
   })
   {
     emit(ResetPasswordLoadingState());
-
     FirebaseAuth.instance.sendPasswordResetEmail(
       email: email,
     ).then((value) {

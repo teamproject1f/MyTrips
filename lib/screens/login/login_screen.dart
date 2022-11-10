@@ -3,29 +3,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team1/shared/components/components.dart';
 import 'package:team1/shared/styles/colors.dart';
 import '../../shared/components/constants.dart';
-import '../../shared/cubit/SignInCubit/cubit.dart';
-import '../../shared/cubit/SignInCubit/state.dart';
+import '../../shared/cubit/SignInCubit/signIn_Cubit.dart';
+import '../../shared/cubit/SignInCubit/signIn_State.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/styles.dart';
 import '../password/forget_Password.dart';
 import '../register/register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     return BlocProvider(
-        create: (BuildContext context) => LoginCubit(),
+        create: (BuildContext context) => SignInCubit(),
         child:
-            BlocConsumer<LoginCubit, LoginStates>(listener: (context, state) {
-          if (state is LoginSuccessState) {
+            BlocConsumer<SignInCubit, SignInStates>(listener: (context, state) {
+          if (state is SignInSuccessState) {
             CacheHelper.saveData(value: state.uid, key: 'uId').then((value) {
               uId = state.uid;
             });
-          } else if (state is LoginErrorState) {
+          } else if (state is SignInErrorState) {
             showToast(
               text: state.error,
               state: ToastStates.error,
@@ -76,6 +76,7 @@ class LoginScreen extends StatelessWidget {
                                   return null;
                                 },
                                 hint: 'Email Address',
+                                prefix: Icons.alternate_email,
                               ),
                               space(0, 26),
                               const Text(
@@ -98,6 +99,12 @@ class LoginScreen extends StatelessWidget {
                                   }
                                   return null;
                                 },
+                                prefix: Icons.lock_outline_sharp,
+                                suffix: SignInCubit.get(context).suffix,
+                                isPassword: SignInCubit.get(context).isPassword,
+                                suffixPressed: () {
+                                  SignInCubit.get(context).showPassword();
+                                },
                                 hint: 'Enter Password',
                               ),
                             ],
@@ -117,7 +124,7 @@ class LoginScreen extends StatelessWidget {
                                 child: const Text(
                                   'Forgot Password ?',
                                   style: TextStyle(
-                                    color: defaultColor,
+                                    color: primaryColor,
                                   ),
                                 ),
                               ),
@@ -128,14 +135,13 @@ class LoginScreen extends StatelessWidget {
                         Center(
                           child: defaultMaterialButton(
                             function: () {
-                              LoginCubit.get(context)
-                                  .userLogin(
+                              SignInCubit.get(context).userSignIn(
                                 email: emailController.text,
                                 password: passwordController.text,
                               );
                             },
                             text: 'Sign in',
-                            color: defaultColor,
+                            color: primaryColor,
                           ),
                         ),
                         space(0, 28),
@@ -154,7 +160,7 @@ class LoginScreen extends StatelessWidget {
                               child: const Text(
                                 'Sign up',
                                 style: TextStyle(
-                                  color: defaultColor,
+                                  color: primaryColor,
                                 ),
                               ),
                             ),

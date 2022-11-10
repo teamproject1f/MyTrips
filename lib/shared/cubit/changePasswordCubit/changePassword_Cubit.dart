@@ -1,11 +1,10 @@
 
-import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../components/components.dart';
-import 'change_password_state.dart';
+import 'changePassword_State.dart';
 
 class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
   ChangePasswordCubit() : super(ChangePasswordInitialState());

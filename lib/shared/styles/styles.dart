@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-
-
 class AssetPath{
 
   static  const String splashImage = "assets/images/splash.png";

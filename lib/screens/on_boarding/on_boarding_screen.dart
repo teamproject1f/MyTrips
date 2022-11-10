@@ -122,10 +122,10 @@ class OnBoard extends StatelessWidget {
         defaultMaterialButton(
           function: ()
           {
-            navigateAndFinish(context, const LoginScreen());
+            navigateAndFinish(context, const SignInScreen());
           },
           text: 'Sign in',
-          color:defaultColor,
+          color:primaryColor,
         ),
         space(0, 26),
 
@@ -135,7 +135,7 @@ class OnBoard extends StatelessWidget {
             navigateAndFinish(context, const RegisterScreen());
           },
           text: 'Sign up',
-          color:defaultColor.withOpacity(0.30),
+          color:primaryColor.withOpacity(0.30),
         ),
         //  space(0, 50),
       ],

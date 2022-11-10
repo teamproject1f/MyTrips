@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:team1/shared/styles/colors.dart';
 import '../../shared/components/components.dart';
-import '../../shared/cubit/restPasswordCubit/rest_password_cubit.dart';
-import '../../shared/cubit/restPasswordCubit/rest_password_state.dart';
+import '../../shared/cubit/restPasswordCubit/restPassword_Cubit.dart';
+import '../../shared/cubit/restPasswordCubit/restPassword_State.dart';
 import '../../shared/styles/styles.dart';
 
 class RestPasswordScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class RestPasswordScreen extends StatelessWidget {
               style: AlertStyle(
                 animationType: AnimationType.grow,
                 animationDuration: const Duration(milliseconds: 1500),
-                backgroundColor: defaultWhiteColor,
+                backgroundColor: secondaryColor,
                 isCloseButton: false,
                 descStyle: GoogleFonts.roboto(
                   color: Colors.green,
@@ -48,7 +49,7 @@ class RestPasswordScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  color: defaultColor,
+                  color: primaryColor,
                   child: Text(
                     "Done",
 
@@ -139,7 +140,7 @@ class RestPasswordScreen extends StatelessWidget {
                           ),
                           space(0, 60),
                           defaultMaterialButton(
-                            color: defaultColor,
+                            color: primaryColor,
                             text: 'Reset Password',
                             function: () {
                               if (loginFormKey.currentState!.validate()) {
