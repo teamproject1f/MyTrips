@@ -28,7 +28,7 @@ class SignInCubit extends Cubit<SignInStates> {
     }).catchError((error) {
     showToast(
       state: ToastStates.error,
-      text: 'email isn\'t valid',
+      text: 'Sign in Failed',
     );
       emit(SignInErrorState(error.toString()));
     });

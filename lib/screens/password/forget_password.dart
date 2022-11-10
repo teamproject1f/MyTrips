@@ -30,23 +30,20 @@ class RestPasswordScreen extends StatelessWidget {
                 backgroundColor: secondaryColor,
                 isCloseButton: false,
                 descStyle: GoogleFonts.roboto(
-                  color: Colors.green,
+                    color: Colors.green,
                     fontSize: 24,
-                    fontWeight: FontWeight.w700
-                ),
+                    fontWeight: FontWeight.w700),
               ),
-           //   padding: EdgeInsets.zero,
+              //   padding: EdgeInsets.zero,
               image: const Image(
-                    image: AssetImage(AssetPath.warningImage) ,
+                image: AssetImage(AssetPath.warningImage),
                 height: 200,
                 width: 300,
                 fit: BoxFit.cover,
-
-                  ),
+              ),
               context: context,
               desc: "Check your mail",
               buttons: [
-
                 DialogButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -54,12 +51,10 @@ class RestPasswordScreen extends StatelessWidget {
                   color: primaryColor,
                   child: Text(
                     "Done",
-
                     style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700
-                    ),
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700),
                   ),
                 )
               ],
@@ -102,62 +97,70 @@ class RestPasswordScreen extends StatelessWidget {
             ),
             body: Form(
               key: loginFormKey,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 20),
-                      child: Text(
-                        'Please enter your e-mail and we will email you a link to reset your password.',
-                        style: GoogleFonts.roboto(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black.withOpacity(0.5),
-                        ),
-                      ),
-                    ),
-                    const Image(image:  AssetImage(AssetPath.resetPasswordImage)),
-                    space(0, 10),
-                    Center(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 50.0),
-                            child: defaultTextFormField(
-                              color: const Color(0xff938E8E).withOpacity(0.3),
-                              context: context,
-                              controller: emailController,
-                              keyboardType: TextInputType.emailAddress,
-                              prefix: Icons.alternate_email,
-                              validate: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Enter Your E-mail';
-                                }
-                                return null;
-                              },
-                              hint: 'E-mail Address',
+              child: CustomScrollView(slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 20),
+                        child: FittedBox(
+                          child: Text(
+                            'Please enter your e-mail and\n'
+                            'we will email you a link to\n '
+                            'reset your password.',
+                            style: GoogleFonts.roboto(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black.withOpacity(0.5),
                             ),
                           ),
-                          space(0, 60),
-                          defaultMaterialButton(
-                            color: primaryColor,
-                            text: 'Reset Password',
-                            function: () {
-                              if (loginFormKey.currentState!.validate()) {
-                                ResetPasswordCubit.get(context).resetPassword(
-                                  email: emailController.text,
-                                );
-                              }
-                            },
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
+                      const Image(
+                          image: AssetImage(AssetPath.resetPasswordImage)),
+                      space(0, 10),
+                      Center(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 50.0),
+                              child: defaultTextFormField(
+                                color: const Color(0xff938E8E).withOpacity(0.3),
+                                context: context,
+                                controller: emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                prefix: Icons.alternate_email,
+                                validate: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter Your E-mail';
+                                  }
+                                  return null;
+                                },
+                                hint: 'E-mail Address',
+                              ),
+                            ),
+                            space(0, 60),
+                            defaultMaterialButton(
+                              color: primaryColor,
+                              text: 'Reset Password',
+                              function: () {
+                                if (loginFormKey.currentState!.validate()) {
+                                  ResetPasswordCubit.get(context).resetPassword(
+                                    email: emailController.text,
+                                  );
+                                }
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              ]),
             ),
           );
         },

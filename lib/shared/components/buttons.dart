@@ -26,14 +26,16 @@ Widget defaultMaterialButton({
     minWidth: 59,
     onPressed: function,
     // color: color,
-    child: Text(
-      textAlign : TextAlign.center,
-      isUpperCase ? text.toUpperCase() : text,
-      style: GoogleFonts.roboto(
-        fontSize: 19,
-        color: const Color(0xffFFFFFF),
-        fontWeight: FontWeight.w500,
+    child: FittedBox(
+      child: Text(
+        textAlign : TextAlign.center,
+        isUpperCase ? text.toUpperCase() : text,
+        style: GoogleFonts.roboto(
+          fontSize: 19,
+          color: const Color(0xffFFFFFF),
+          fontWeight: FontWeight.w500,
 
+        ),
       ),
     ),
   ),

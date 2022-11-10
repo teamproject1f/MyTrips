@@ -1,3 +1,4 @@
+import 'package:TRIPSO/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:TRIPSO/shared/styles/colors.dart';
@@ -20,114 +21,159 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var formKey = GlobalKey<FormState>();
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     return BlocProvider(
-        create: (BuildContext context) => SignInCubit(),
-        child:
-            BlocConsumer<SignInCubit, SignInStates>(listener: (context, state) {
-          if (state is SignInSuccessState) {
-            CacheHelper.saveData(value: state.uid, key: 'uId').then((value) {
-              uId = state.uid;
-            });
-          } else if (state is SignInErrorState) {
-            showToast(
-              text: state.error,
-              state: ToastStates.error,
-            );
-          }
-        }, builder: (context, state) {
-          return Stack(
-            children: [
-              Container(
-                constraints: const BoxConstraints.expand(),
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(AssetPath.signINImage),
-                    fit: BoxFit.cover,
-                  ),
+      create: (BuildContext context) => SignInCubit(),
+      child:
+          BlocConsumer<SignInCubit, SignInStates>(listener: (context, state) {
+        if (state is SignInSuccessState) {
+          CacheHelper.saveData(value: state.uid, key: 'uId').then((value) {
+            uId = state.uid;
+          });
+        } else if (state is SignInErrorState) {
+          showToast(
+            text: state.error,
+            state: ToastStates.error,
+          );
+        }
+      }, builder: (context, state) {
+        return Stack(
+          children: [
+            Container(
+              constraints: const BoxConstraints.expand(),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(AssetPath.signINImage),
+                  fit: BoxFit.cover,
                 ),
-                child: Scaffold(
-                  backgroundColor: Colors.transparent,
-                  appBar: defaultAppBar(),
-                  body: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        space(0, 240),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Email Address',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+              ),
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                appBar: defaultAppBar(),
+                body: CustomScrollView(slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          space(0, 240),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 50),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Email Address',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                              space(0, 8),
-                              defaultTextFormField(
-                                color: Colors.white30,
-                                context: context,
-                                controller: emailController,
-                                keyboardType: TextInputType.emailAddress,
-                                validate: (String? value) {
-                                  if (value!.isEmpty) {
-                                    'please Enter Your Email Address';
-                                  }
-                                  return null;
-                                },
-                                hint: 'Email Address',
-                                prefix: Icons.alternate_email,
-                              ),
-                              space(0, 26),
-                              const Text(
-                                'Password',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                                space(0, 8),
+                                defaultTextFormField(
+                                  color: Colors.white30,
+                                  context: context,
+                                  controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  validate: (String? value) {
+                                    if (value!.isEmpty) {
+                                      return 'Email Address is Required';
+                                    }
+                                    return null;
+                                  },
+                                  hint: 'Email Address',
+                                  prefix: Icons.alternate_email,
                                 ),
-                              ),
-                              space(0, 8),
-                              defaultTextFormField(
-                                color: Colors.white30,
-                                context: context,
-                                controller: passwordController,
-                                keyboardType: TextInputType.visiblePassword,
-                                validate: (String? value) {
-                                  if (value!.isEmpty) {
-                                    'please Enter Your Password';
-                                  }
-                                  return null;
-                                },
-                                prefix: Icons.lock_outline_sharp,
-                                suffix: SignInCubit.get(context).suffix,
-                                isPassword: SignInCubit.get(context).isPassword,
-                                suffixPressed: () {
-                                  SignInCubit.get(context).showPassword();
-                                },
-                                hint: 'Enter Password',
-                              ),
-                            ],
+                                space(0, 26),
+                                const Text(
+                                  'Password',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                space(0, 8),
+                                defaultTextFormField(
+                                  color: Colors.white30,
+                                  context: context,
+                                  controller: passwordController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  validate: (String? value) {
+                                    if (value!.isEmpty) {
+                                      return 'Password is Required';
+                                    }
+                                    return null;
+                                  },
+                                  prefix: Icons.lock_outline_sharp,
+                                  suffix: SignInCubit.get(context).suffix,
+                                  isPassword: SignInCubit.get(context).isPassword,
+                                  suffixPressed: () {
+                                    SignInCubit.get(context).showPassword();
+                                  },
+                                  hint: 'Enter Password',
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        space(0, 17),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                          space(0, 17),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 50),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    navigateTo(
+                                        context, const RestPasswordScreen());
+                                  },
+                                  child: const Text(
+                                    'Forgot Password ?',
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          space(0, 104),
+                          Center(
+                            child: defaultMaterialButton(
+                              function: () {
+                                if (formKey.currentState!.validate()) {
+                                  SignInCubit.get(context).userSignIn(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  );
+                                  navigateAndFinish(context,
+                                      const HomeScreen());
+                                }
+                              },
+                              text: 'Sign in',
+                              color: primaryColor,
+                            ),
+                          ),
+                          space(0, 28),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              const Text(
+                                'Don\'t have an account?',
+                                style: TextStyle(color: Colors.white),
+                              ),
                               TextButton(
                                 onPressed: () {
-                                  navigateTo(
-                                      context, const RestPasswordScreen());
+                                  // navigateAndFinish(context, const RegisterScreen());
+                                  navigateTo(context, const RegisterScreen());
                                 },
                                 child: const Text(
-                                  'Forgot Password ?',
+                                  'Sign up',
                                   style: TextStyle(
                                     color: primaryColor,
                                   ),
@@ -135,50 +181,16 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
-                        space(0, 104),
-                        Center(
-                          child: defaultMaterialButton(
-                            function: () {
-                              SignInCubit.get(context).userSignIn(
-                                email: emailController.text,
-                                password: passwordController.text,
-                              );
-                            },
-                            text: 'Sign in',
-                            color: primaryColor,
-                          ),
-                        ),
-                        space(0, 28),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Don\'t have an account?',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                // navigateAndFinish(context, const RegisterScreen());
-                                navigateTo(context, const RegisterScreen());
-                              },
-                              child: const Text(
-                                'Sign up',
-                                style: TextStyle(
-                                  color: primaryColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        space(0, 79),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                ]),
               ),
-            ],
-          );
-        }));
+            ),
+          ],
+        );
+      }),
+    );
   }
 }
