@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:TRIPSO/screens/home/home_screen.dart';
 import 'package:TRIPSO/shared/styles/styles.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/app_bar.dart';
+import '../../shared/components/buttons.dart';
 import '../../shared/components/constants.dart';
- import '../../shared/cubit/SignUpCubit/signUp_cubit.dart';
-import '../../shared/cubit/SignUpCubit/signUp_state.dart';
+ import '../../shared/components/navigator.dart';
+import '../../shared/components/show_toast.dart';
+import '../../shared/components/sized_box.dart';
+import '../../shared/components/text_form_field.dart';
+import '../../shared/cubit/SignUpCubit/sign_up_cubit.dart';
+import '../../shared/cubit/SignUpCubit/sign_up_state.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/colors.dart';
 

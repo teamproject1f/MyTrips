@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:TRIPSO/shared/components/components.dart';
 import 'package:TRIPSO/shared/styles/colors.dart';
+import '../../shared/components/app_bar.dart';
+import '../../shared/components/buttons.dart';
 import '../../shared/components/constants.dart';
-import '../../shared/cubit/SignInCubit/signIn_Cubit.dart';
-import '../../shared/cubit/SignInCubit/signIn_State.dart';
+import '../../shared/components/navigator.dart';
+import '../../shared/components/show_toast.dart';
+import '../../shared/components/sized_box.dart';
+import '../../shared/components/text_form_field.dart';
+import '../../shared/cubit/SignInCubit/sign_in_cubit.dart';
+import '../../shared/cubit/SignInCubit/sign_in_state.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/styles.dart';
-import '../password/forget_Password.dart';
+import '../password/forget_password.dart';
 import '../register/register_screen.dart';
 
 class SignInScreen extends StatelessWidget {

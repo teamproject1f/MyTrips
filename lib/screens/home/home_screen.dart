@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:TRIPSO/shared/components/components.dart';
+
+import '../../shared/components/app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
 

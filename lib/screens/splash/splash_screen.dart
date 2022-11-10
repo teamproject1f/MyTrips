@@ -4,8 +4,10 @@ import 'package:TRIPSO/screens/home/home_screen.dart';
 import 'package:TRIPSO/screens/on_boarding/on_boarding_screen.dart';
 import 'package:TRIPSO/shared/styles/colors.dart';
 import 'package:TRIPSO/shared/styles/styles.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/app_bar.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/components/navigator.dart';
+import '../../shared/components/size_config.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:TRIPSO/shared/cubit/SignUpCubit/signUp_state.dart';
+import 'package:TRIPSO/shared/cubit/SignUpCubit/sign_up_state.dart';
 import 'package:TRIPSO/shared/styles/styles.dart';
 import '../../../model/user_model.dart';
-import '../../components/components.dart';
+import '../../components/show_toast.dart';
 
 class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialState());
