@@ -97,7 +97,8 @@ Widget defaultTextFormField({
         ),
       ),
       errorStyle: const TextStyle(
-          color: Colors.white,backgroundColor: Colors.red,
+          color: Colors.white,
+          backgroundColor: Colors.red,
           fontSize: 16
       ),
     ),
