@@ -139,7 +139,7 @@ class OnBoard extends StatelessWidget {
 
             defaultMaterialButton(
               function: () {
-                navigateAndFinish(context, const RegisterScreen());
+                navigateTo(context, const RegisterScreen());
               },
               text: 'Sign up',
               color: primaryColor.withOpacity(0.30),
