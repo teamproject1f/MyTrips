@@ -157,8 +157,14 @@ class RegisterScreen extends StatelessWidget {
                                           RegExp regExp = RegExp(pattern);
                                           if (value!.isEmpty) {
                                             return 'Email is Required';
-                                          } else if (regExp.hasMatch(value)) {
-                                            return 'Please a valid Email';
+                                          }
+                                          else if(value.length<16)
+                                          {
+                                            return 'Sorry, your mail must be\n between 16 and 30 characters long.\n'
+                                            'Example: tripso@gmail.com';
+                                          }
+                                          else if (!regExp.hasMatch(value)) {
+                                            return 'This email isn\'t in an allowed. Try again.';
                                           } else {
                                             return null;
                                           }
@@ -188,13 +194,19 @@ class RegisterScreen extends StatelessWidget {
                                           RegExp regExp = RegExp(pattern);
                                           if (value!.isEmpty) {
                                             return "Password is Required";
-                                          } else if (!regExp.hasMatch(value)) {
+
+                                          }
+                                          else if(value.length<8)
+                                          {
+                                            return "Use, 8 characters or more for your password";
+                                          }
+                                          else if (!regExp.hasMatch(value)) {
                                             return 'Example  Tripso123!\n'
                                                 'Minimum 1 Upper case\n'
                                                 'Minimum 1 lowercase\n'
                                                 'Minimum 1 Numeric Number\n'
                                                 'Minimum 1 Special Character\n'
-                                                'Common Allow Character ( ! @ # & * ~ ) \n';
+                                                'Common Allow Character ( ! @ # & * ~ )';
                                           }
                                           return null;
                                         },
