@@ -37,9 +37,9 @@ class OnBoard extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          space(0, 270),
+                          space(width: 0 ,height: 270),
                           welcomeText(),
-                          space(0, 89),
+                          space(width: 0 ,height: 89),
                           button(context),
                         ],
                       ),
@@ -138,7 +138,7 @@ class OnBoard extends StatelessWidget {
               text: 'Sign in',
               color: primaryColor,
             ),
-            space(0, 26),
+            space(width: 0 ,height: 26),
 
             defaultMaterialButton(
               function: () {

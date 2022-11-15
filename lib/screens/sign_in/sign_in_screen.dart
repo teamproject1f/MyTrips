@@ -15,7 +15,7 @@ import '../../shared/cubit/SignInCubit/sign_in_cubit.dart';
 import '../../shared/cubit/SignInCubit/sign_in_state.dart';
 import '../../shared/network/cache_helper.dart';
 import '../../shared/styles/styles.dart';
-import '../password/forget_password.dart';
+import '../password/forget_password_screen.dart';
 import '../sign_up/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -61,7 +61,7 @@ class SignInScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            space(0, 240),
+                            space(width: 0 ,height: 240),
                             Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 50),
                               child: Column(
@@ -75,7 +75,7 @@ class SignInScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  space(0, 8),
+                                  space(width: 0 ,height: 8),
                                   defaultTextFormField(
                                     color: Colors.white30,
                                     context: context,
@@ -90,7 +90,7 @@ class SignInScreen extends StatelessWidget {
                                     hint: 'Email Address',
                                     prefix: Icons.alternate_email,
                                   ),
-                                  space(0, 26),
+                                  space(width: 0 ,height: 26),
                                   const Text(
                                     'Password',
                                     style: TextStyle(
@@ -99,7 +99,7 @@ class SignInScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  space(0, 8),
+                                  space(width: 0 ,height: 8),
                                   defaultTextFormField(
                                     color: Colors.white30,
                                     context: context,
@@ -122,7 +122,7 @@ class SignInScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            space(0, 17),
+                            space(width: 0 ,height: 17),
                             Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 50),
                               child: Row(
@@ -131,7 +131,7 @@ class SignInScreen extends StatelessWidget {
                                   TextButton(
                                     onPressed: () {
                                       navigateTo(
-                                          context, const RestPasswordScreen());
+                                          context,  const ForgotPassword());
                                     },
                                     child: const Text(
                                       'Forgot Password ?',
@@ -143,7 +143,7 @@ class SignInScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            space(0, 104),
+                            space(width: 0 ,height: 104),
                             Center(
                               child: defaultMaterialButton(
                                 function: () {
@@ -160,7 +160,7 @@ class SignInScreen extends StatelessWidget {
                                 color: primaryColor,
                               ),
                             ),
-                            space(0, 28),
+                            space(width: 0 ,height: 28),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

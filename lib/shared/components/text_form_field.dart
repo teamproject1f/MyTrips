@@ -41,7 +41,7 @@ Widget defaultTextFormField({
     keyboardType: keyboardType,
     autofocus: false,
     decoration: InputDecoration(
-      contentPadding: EdgeInsets.zero,
+      contentPadding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
       fillColor: color,
       filled: true,
       prefixIcon: Icon(
@@ -63,7 +63,7 @@ Widget defaultTextFormField({
           Radius.circular(10.0),
         ),
         borderSide: BorderSide(
-          color:  Colors.white,
+          color:  Colors.black,
         ),
       ),
       hintText: hint,

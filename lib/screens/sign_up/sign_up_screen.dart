@@ -83,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  space(0, 32),
+                                  space(width: 0 ,height: 32),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 50),
@@ -99,7 +99,7 @@ class RegisterScreen extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        space(0, 8),
+                                        space(width: 0 ,height: 8),
                                         defaultTextFormField(
                                           color: Colors.white30,
                                           context: context,
@@ -114,7 +114,7 @@ class RegisterScreen extends StatelessWidget {
                                           prefix: Icons.edit_outlined,
                                           hint: 'First Name',
                                         ),
-                                        space(0, 20),
+                                        space(width: 0 ,height: 20),
                                         const Text(
                                           'Last Name',
                                           style: TextStyle(
@@ -123,7 +123,7 @@ class RegisterScreen extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        space(0, 8),
+                                        space(width: 0 ,height: 8),
                                         defaultTextFormField(
                                           color: Colors.white30,
                                           context: context,
@@ -138,7 +138,7 @@ class RegisterScreen extends StatelessWidget {
                                           prefix: Icons.edit_outlined,
                                           hint: 'Last Name',
                                         ),
-                                        space(0, 20),
+                                        space(width: 0 ,height: 20),
                                         const Text(
                                           'Email Address',
                                           style: TextStyle(
@@ -147,7 +147,7 @@ class RegisterScreen extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        space(0, 8),
+                                        space(width: 0 ,height: 8),
                                         defaultTextFormField(
                                           color: Colors.white30,
                                           context: context,
@@ -168,14 +168,16 @@ class RegisterScreen extends StatelessWidget {
                                             }
                                             else if (!regExp.hasMatch(value)) {
                                               return 'This email isn\'t in an allowed. Try again.';
-                                            } else {
+                                            }
+
+                                            else {
                                               return null;
                                             }
                                           },
                                           prefix: Icons.alternate_email,
                                           hint: 'Email Address',
                                         ),
-                                        space(0, 20),
+                                        space(width: 0 ,height: 20),
                                         const Text(
                                           'Password',
                                           style: TextStyle(
@@ -184,7 +186,7 @@ class RegisterScreen extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        space(0, 8),
+                                        space(width: 0 ,height: 8),
                                         defaultTextFormField(
                                           color: Colors.white30,
                                           context: context,
@@ -226,7 +228,7 @@ class RegisterScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  space(0, 70),
+                                  space(width: 0 ,height: 70),
                                   defaultMaterialButton(
                                     function: () {
                                       if (formKey.currentState!.validate()) {

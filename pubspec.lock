@@ -134,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  email_auth:
+    dependency: "direct main"
+    description:
+      name: email_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+4"
   fake_async:
     dependency: transitive
     description:
@@ -304,7 +311,7 @@ packages:
     source: hosted
     version: "3.0.1"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -443,6 +450,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.0"
+  pin_code_fields:
+    dependency: "direct main"
+    description:
+      name: pin_code_fields
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.4.0"
   platform:
     dependency: transitive
     description:

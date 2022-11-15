@@ -26,6 +26,7 @@ Widget defaultMaterialButton({
     minWidth: 59,
     onPressed: function,
     // color: color,
+
     child: FittedBox(
       child: Text(
         textAlign : TextAlign.center,
@@ -34,9 +35,42 @@ Widget defaultMaterialButton({
           fontSize: 19,
           color: const Color(0xffFFFFFF),
           fontWeight: FontWeight.w500,
-
         ),
       ),
     ),
   ),
 );
+
+Widget defaultButton({
+  required Function() function,
+  required  Widget widget,
+  double width = 290,
+  double height = 43.0,
+  double radius = 10.0,
+  bool isUpperCase = false,
+  Color? color,
+  Function? onTap,
+}) => Container(
+  width: width,
+  height: height,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(
+      radius,
+    ),
+    color: color,
+  ),
+  child: MaterialButton(
+
+    clipBehavior : Clip.antiAliasWithSaveLayer,
+    height: 22,
+    minWidth: 59,
+    onPressed: function,
+    // color: color,
+
+    child: FittedBox(
+      child: widget,
+      ),
+    ),
+
+);
+
