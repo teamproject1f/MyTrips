@@ -5,7 +5,7 @@ import 'package:TRIPSO/screens/on_boarding/on_boarding_screen.dart';
 import 'package:TRIPSO/shared/styles/colors.dart';
 import 'package:TRIPSO/shared/styles/styles.dart';
 import '../../shared/components/app_bar.dart';
-import '../../shared/components/constants.dart';
+import '../../shared/constants/constants.dart';
 import '../../shared/components/navigator.dart';
 import '../../shared/components/size_config.dart';
 

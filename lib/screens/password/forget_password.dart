@@ -1,3 +1,4 @@
+import 'package:TRIPSO/shared/animation/fade_animation.dart';
 import 'package:TRIPSO/shared/components/alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,16 +25,16 @@ class RestPasswordScreen extends StatelessWidget {
       child: BlocConsumer<ResetPasswordCubit, ResetPasswordStates>(
         listener: (context, state) {
           if (state is ResetPasswordLoadingState) {
-         alertDialog(
-             context: context,
-             color:  Colors.green,
-             image: AssetPath.warningImage,
-             title: 'Check your mail',
-             text: 'Done',
-         );
+            alertDialog(
+              context: context,
+              color: Colors.green,
+              image: AssetPath.warningImage,
+              title: 'Check your mail',
+              text: 'Done',
+            );
           }
           if (state is ResetPasswordSuccessState) {
-              navigateAndFinish(context, const SignInScreen());
+            navigateAndFinish(context, const SignInScreen());
           }
         },
         builder: (context, state) {
@@ -90,43 +91,51 @@ class RestPasswordScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Image(
-                          image: AssetImage(AssetPath.resetPasswordImage)),
+                      const FadeAnimation(
+                        1.0,
+                        child: Image(
+                            image: AssetImage(AssetPath.resetPasswordImage)),
+                      ),
                       space(0, 10),
                       Center(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 50.0),
-                              child: defaultTextFormField(
-                                color: const Color(0xff938E8E).withOpacity(0.3),
-                                context: context,
-                                controller: emailController,
-                                keyboardType: TextInputType.emailAddress,
-                                prefix: Icons.alternate_email,
-                                validate: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter Your E-mail';
-                                  }
-                                  return null;
-                                },
-                                hint: 'E-mail Address',
+                        child: FadeAnimation(
+                          1.5,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 50.0),
+                                child: defaultTextFormField(
+                                  color:
+                                      const Color(0xff938E8E).withOpacity(0.3),
+                                  context: context,
+                                  controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  prefix: Icons.alternate_email,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Enter Your E-mail';
+                                    }
+                                    return null;
+                                  },
+                                  hint: 'E-mail Address',
+                                ),
                               ),
-                            ),
-                            space(0, 60),
-                            defaultMaterialButton(
-                              color: primaryColor,
-                              text: 'Reset Password',
-                              function: () {
-                                if (loginFormKey.currentState!.validate()) {
-                                  ResetPasswordCubit.get(context).resetPassword(
-                                    email: emailController.text,
-                                  );
-                                }
-                              },
-                            ),
-                          ],
+                              space(0, 60),
+                              defaultMaterialButton(
+                                color: primaryColor,
+                                text: 'Reset Password',
+                                function: () {
+                                  if (loginFormKey.currentState!.validate()) {
+                                    ResetPasswordCubit.get(context)
+                                        .resetPassword(
+                                      email: emailController.text,
+                                    );
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:TRIPSO/screens/splash/splash_screen.dart';
 import 'package:TRIPSO/shared/bloc_observer.dart';
-import 'package:TRIPSO/shared/components/constants.dart';
+import 'package:TRIPSO/shared/constants/constants.dart';
 import 'shared/network/cache_helper.dart';
 
 void main() async {

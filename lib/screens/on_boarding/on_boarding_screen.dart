@@ -1,3 +1,4 @@
+import 'package:TRIPSO/shared/animation/fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:TRIPSO/screens/sign_in/sign_in_screen.dart';
 import 'package:TRIPSO/screens/sign_up/sign_up_screen.dart';
@@ -25,23 +26,25 @@ class OnBoard extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: Scaffold(
-            appBar: defaultAppBar(),
-            backgroundColor: Colors.transparent,
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: Center(
-                child: customScrollableForm(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        space(0, 270),
-                        welcomeText(),
-                        space(0, 89),
-                        button(context),
-                      ],
+          child: FadeAnimation(1.3,
+            child: Scaffold(
+              appBar: defaultAppBar(),
+              backgroundColor: Colors.transparent,
+              body: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Center(
+                  child: customScrollableForm(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          space(0, 270),
+                          welcomeText(),
+                          space(0, 89),
+                          button(context),
+                        ],
+                      ),
                     ),
-                  ),
+                ),
               ),
             ),
           ),
